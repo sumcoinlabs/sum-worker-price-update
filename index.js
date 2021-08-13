@@ -35,7 +35,7 @@ async function handleSchedule() {
   //get coinpaprika ppc/usd price 
   const paprikaResponse = await getFromApi("https://api.coinpaprika.com/v1/tickers/ppc-peercoin");
   const openExchangeResponse = await getFromApi(`https://openexchangerates.org/api/latest.json?app_id=${CURRCONV_KEY}`);
-  const ppcUsdPrice = paprikaResponse["quotes"]["USD"]["price"].toFixed(2);
+  const ppcUsdPrice = paprikaResponse["quotes"]["USD"]["price"];
 
   //get currency fiat/usd exchange rates
   const rates = openExchangeResponse["rates"];
