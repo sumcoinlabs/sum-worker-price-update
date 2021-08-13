@@ -1,4 +1,4 @@
-Cloudflare worker that fetches PPC/USD price from coinpaprika and FIAT/USD prices from open exchange rates. 
+Cloudflare worker that fetches PPC/USD price from coinpaprika and FIAT/USD prices from open exchange rates.  
 Data is written to a Cloudflare KV database.
 
 Powered by <a href="https://coinpaprika.com">
