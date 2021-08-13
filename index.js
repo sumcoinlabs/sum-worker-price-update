@@ -1,10 +1,3 @@
-addEventListener('scheduled', event => {
-  console.log("scheduled")
-  event.waitUntil(
-    handleSchedule()
-  )
-})
-
 async function gatherResponse(response) {
   const { headers } = response
   const contentType = headers.get("content-type") || ""
@@ -27,23 +20,20 @@ async function getFromApi(url) {
   return results; 
 }
 
-addEventListener('scheduled', event => {
-  event.waitUntil(triggerEvent())
+addEventListener("fetch", event => {
+  return event.respondWith(new Response())
 })
 
-async function triggerEvent() {
+addEventListener('scheduled', event => {
+  event.waitUntil(
+    handleSchedule(event.scheduledTime)
+  )
+})
+
+async function handleSchedule(scheduledDate) {
   //get coinpaprika ppc/usd price 
   const paprikaResponse = await getFromApi("https://api.coinpaprika.com/v1/tickers/ppc-peercoin");
   const ppcUsdPrice = paprikaResponse["quotes"]["USD"]["price"].toFixed(2);
   //write to KV
   await peercoin_kv.put("ppc_usd", ppcUsdPrice);
-  return; 
 }
-
-async function handleRequest(request) {
-  return new Response();
-}
-
-addEventListener("fetch", event => {
-  return event.respondWith(handleRequest(event.request))
-})
