@@ -35,5 +35,5 @@ async function handleSchedule(scheduledDate) {
   const paprikaResponse = await getFromApi("https://api.coinpaprika.com/v1/tickers/ppc-peercoin");
   const ppcUsdPrice = paprikaResponse["quotes"]["USD"]["price"].toFixed(2);
   //write to KV
-  await peercoin_kv.put("ppc_usd", ppcUsdPrice);
+  await peercoin_kv.put("PPC_USD", ppcUsdPrice);
 }
