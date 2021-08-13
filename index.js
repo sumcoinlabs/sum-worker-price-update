@@ -53,6 +53,6 @@ async function handleSchedule() {
   }
 
   //write to KV
-  await peercoin_kv.put('PPC_USD', ppcUsdPrice)
+  await peercoin_kv.put('PPC_USD', ppcUsdPrice.toFixed(6))
   await peercoin_kv.put('FIAT_USD', JSON.stringify(fiatPricesUSD))
 }
