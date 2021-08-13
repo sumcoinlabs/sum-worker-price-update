@@ -21,6 +21,7 @@ async function getFromApi(url) {
 }
 
 addEventListener("fetch", event => {
+  event.waitUntil(handleSchedule())
   return event.respondWith(new Response())
 })
 
@@ -30,10 +31,27 @@ addEventListener('scheduled', event => {
   )
 })
 
-async function handleSchedule(scheduledDate) {
+async function handleSchedule() {
   //get coinpaprika ppc/usd price 
   const paprikaResponse = await getFromApi("https://api.coinpaprika.com/v1/tickers/ppc-peercoin");
+  const openExchangeResponse = await getFromApi(`https://openexchangerates.org/api/latest.json?app_id=${CURRCONV_KEY}`);
   const ppcUsdPrice = paprikaResponse["quotes"]["USD"]["price"].toFixed(2);
+
+  //get currency fiat/usd exchange rates
+  const rates = openExchangeResponse["rates"];
+  const fiatPricesUSD = {
+    ARS: rates["ARS"],
+    BRL: rates["BRL"],
+    CNY: rates["CNY"],
+    EUR: rates["EUR"],
+    GBP: rates["GBP"],
+    HRK: rates["HRK"],
+    INR: rates["INR"],
+    RON: rates["RON"],
+    RUB: rates["RUB"],
+  };
+
   //write to KV
   await peercoin_kv.put("PPC_USD", ppcUsdPrice);
+  await peercoin_kv.put("FIAT_USD", JSON.stringify(fiatPricesUSD));
 }
