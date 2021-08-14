@@ -33,14 +33,15 @@ async function handleSchedule() {
   const paprikaResponse = await getFromApi(
     'https://api.coinpaprika.com/v1/tickers/ppc-peercoin',
   )
+  //get currency fiat/usd exchange rates
   const openExchangeResponse = await getFromApi(
     `https://openexchangerates.org/api/latest.json?app_id=${CURRCONV_KEY}`,
   )
-  const ppcUsdPrice = paprikaResponse['quotes']['USD']['price']
 
-  //get currency fiat/usd exchange rates
+  const ppcUsdPrice = paprikaResponse['quotes']['USD']['price']
   const rates = openExchangeResponse['rates']
-  const fiatPricesUSD = {
+
+  const prices = {
     ARS: rates['ARS'],
     BRL: rates['BRL'],
     CNY: rates['CNY'],
@@ -48,11 +49,11 @@ async function handleSchedule() {
     GBP: rates['GBP'],
     HRK: rates['HRK'],
     INR: rates['INR'],
+    PPC: ppcUsdPrice.toFixed(6),
     RON: rates['RON'],
     RUB: rates['RUB'],
   }
 
   //write to KV
-  await peercoin_kv.put('PPC_USD', ppcUsdPrice.toFixed(6))
-  await peercoin_kv.put('FIAT_USD', JSON.stringify(fiatPricesUSD))
+  await peercoin_kv.put('prices', JSON.stringify(prices))
 }
