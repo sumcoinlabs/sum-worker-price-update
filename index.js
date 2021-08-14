@@ -25,7 +25,7 @@ addEventListener('fetch', (event) => {
 })
 
 addEventListener('scheduled', (event) => {
-  event.waitUntil(handleSchedule(event.scheduledTime))
+  event.waitUntil(handleSchedule())
 })
 
 async function handleSchedule() {
@@ -49,7 +49,7 @@ async function handleSchedule() {
     GBP: rates['GBP'],
     HRK: rates['HRK'],
     INR: rates['INR'],
-    PPC: ppcUsdPrice.toFixed(6),
+    PPC: parseFloat(ppcUsdPrice.toFixed(6)),
     RON: rates['RON'],
     RUB: rates['RUB'],
   }
