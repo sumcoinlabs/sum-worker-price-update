@@ -49,7 +49,7 @@ async function handleSchedule() {
     GBP: rates['GBP'],
     HRK: rates['HRK'],
     INR: rates['INR'],
-    INR: rates['NOK'],
+    NOK: rates['NOK'],
     PLN: rates['PLN'],
     PPC: parseFloat(ppcUsdPrice.toFixed(6)),
     RON: rates['RON'],
