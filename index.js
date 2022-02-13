@@ -52,13 +52,19 @@ async function handleSchedule() {
     IDR: rates['IDR'],
     INR: rates['INR'],
     IRR: rates['IRR'],
+    KES: rates['KES'],
     KRW: rates['KRW'],
     NOK: rates['NOK'],
+    PKR: rates['PKR'],
     PLN: rates['PLN'],
     PPC: parseFloat(ppcUsdPrice.toFixed(6)),
     RON: rates['RON'],
     RUB: rates['RUB'],
-    TRY: rates['TRY']
+    TRY: rates['TRY'],
+    TZS: rates['TZS'],
+    UAH: rates['UAH'],
+    UGX: rates['UGX'],
+    VND: rates['VND']
   }
 
   //write to KV
