@@ -60,6 +60,7 @@ async function handleSchedule() {
     PPC: parseFloat(ppcUsdPrice.toFixed(6)),
     RON: rates['RON'],
     RUB: rates['RUB'],
+    THB: rates['THB'],
     TRY: rates['TRY'],
     TZS: rates['TZS'],
     UAH: rates['UAH'],
