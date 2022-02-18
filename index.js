@@ -52,6 +52,7 @@ async function handleSchedule() {
     IDR: rates['IDR'],
     INR: rates['INR'],
     IRR: rates['IRR'],
+    JPY: rates['JPY'],
     KES: rates['KES'],
     KRW: rates['KRW'],
     NOK: rates['NOK'],
