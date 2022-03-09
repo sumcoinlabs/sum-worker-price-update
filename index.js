@@ -56,6 +56,7 @@ async function handleSchedule() {
     KES: rates['KES'],
     KRW: rates['KRW'],
     NOK: rates['NOK'],
+    PHP: rates['PHP'],
     PKR: rates['PKR'],
     PLN: rates['PLN'],
     PPC: parseFloat(ppcUsdPrice.toFixed(6)),
