@@ -43,6 +43,7 @@ async function handleSchedule() {
 
   const prices = {
     ARS: rates['ARS'],
+    AUD: rates['AUD'],
     BDT: rates['BDT'],
     BRL: rates['BRL'],
     CNY: rates['CNY'],
