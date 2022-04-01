@@ -47,6 +47,7 @@ async function handleSchedule() {
     BDT: rates['BDT'],
     BRL: rates['BRL'],
     CNY: rates['CNY'],
+    DKK: rates['DKK'],
     EUR: rates['EUR'],
     GBP: rates['GBP'],
     HRK: rates['HRK'],
