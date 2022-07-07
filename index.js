@@ -31,14 +31,14 @@ addEventListener('scheduled', (event) => {
 async function handleSchedule() {
   //get coinpaprika ppc/usd price
   const paprikaResponse = await getFromApi(
-    'https://api.coinpaprika.com/v1/tickers/ppc-peercoin',
+    'https://sumcoinindex.com/rates/price2.json',
   )
   //get currency fiat/usd exchange rates
   const openExchangeResponse = await getFromApi(
     `https://openexchangerates.org/api/latest.json?app_id=${CURRCONV_KEY}`,
   )
 
-  const ppcUsdPrice = paprikaResponse['quotes']['USD']['price']
+  const sumUsdPrice = paprikaResponse['price']
   const rates = openExchangeResponse['rates']
 
   const prices = {
@@ -61,7 +61,7 @@ async function handleSchedule() {
     PHP: rates['PHP'],
     PKR: rates['PKR'],
     PLN: rates['PLN'],
-    PPC: parseFloat(ppcUsdPrice.toFixed(6)),
+    SUM: parseFloat(sumUsdPrice.toFixed(2)),
     RON: rates['RON'],
     RUB: rates['RUB'],
     SEK: rates['SEK'],
