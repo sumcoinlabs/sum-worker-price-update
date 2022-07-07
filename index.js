@@ -74,5 +74,5 @@ async function handleSchedule() {
   }
 
   //write to KV
-  await peercoin_kv.put('prices', JSON.stringify(prices))
+  await sumcoin_kv.put('prices', JSON.stringify(prices))
 }
