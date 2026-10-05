@@ -1,7 +1,5 @@
 # Sumcoin Price Update Worker
 
-# Sumcoin Price Update Worker
-
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![Worker Version](https://img.shields.io/badge/Worker-v8-blue)](#)
 [![Scheduler](https://img.shields.io/badge/Scheduler-Uptime%20Kuma-5CDD8B)](https://github.com/louislam/uptime-kuma)
